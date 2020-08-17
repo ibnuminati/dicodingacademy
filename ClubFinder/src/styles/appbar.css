@@ -1,4 +1,6 @@
-.app-bar {
+/* ubah selector-nya dari .app-bar menjadi app-bar */
+app-bar {
+    display: block;
     padding: 16px;
     width: 100%;
     background-color: cornflowerblue;
