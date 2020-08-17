@@ -4,9 +4,22 @@ const main = () => {
     const clubListElement = document.querySelector("#clubList");
 
     const onButtonSearchClicked = () => {
-        const dataSource = new DataSource(renderResult, fallbackResult);
-        dataSource.searchClub(searchElement.value);
+        DataSource.searchClub(searchElement.value)
+            .then(renderResult)
+            .catch(fallbackResult)
     };
+
+    // Atau jika Anda lebih suka menggunakan async /await, Anda bisa membuat fungsi onButtonSearchClicked berjalan secara asynchronous seperti ini:
+    /*
+            const onButtonSearchClicked = async () => {
+                try {
+                    const result = await DataSource.searchClub(searchElement.value);
+                    renderResult(result);
+                } catch (message) {
+                    fallbackResult(message)
+                }
+            };
+    */
 
     const renderResult = results => {
         clubListElement.innerHTML = "";
